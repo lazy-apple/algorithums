@@ -36,7 +36,7 @@ public class Insertion_Sort {
 
     public static void main(String[] args) {
         int arr[] = new int[]{3, 6, 5, 9, 8, 1};
-        arr = insertion_sort(arr);
+        insertion_sort(arr);
         //check result：
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
