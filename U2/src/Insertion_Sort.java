@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 正序插入排序
+ * （正序）插入排序
  *
  * @author LaZY（李志一）
  * @data 2018/9/4 - 15:01
