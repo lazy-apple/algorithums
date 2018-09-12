@@ -19,14 +19,14 @@ public class Maximum_Subarray {
      * @return  最大子数组的和
      *
      */
-    public  static  int FIND_MAXMUM_SUBARRAY(int a[],int low,int high){
+    private  static  int FIND_MAXMUM_SUBARRAY(int a[],int low,int high){
         if (low == high){//递归的出口
             return a[low];
         }else {
             int mid = (low + high)/2;
 
             int max_left = FIND_MAXMUM_SUBARRAY(a,low,mid);
-            int max_right = FIND_MAXMUM_SUBARRAY(a,mid,high);
+            int max_right = FIND_MAXMUM_SUBARRAY(a,mid+1,high);
             int max_mid = FIND_MAX_CROSSING_SUBARRAY(a,low,mid,high);
 
             if (max_left>max_mid&&max_left>max_right){
@@ -56,7 +56,7 @@ public class Maximum_Subarray {
      * @param high  求解子数组的末尾索引
      * @return  最大子数组的和
      */
-    public static int FIND_MAX_CROSSING_SUBARRAY(int a[],int low,int mid,int high){
+    private static int FIND_MAX_CROSSING_SUBARRAY(int a[],int low,int mid,int high){
         //求中间点左边最大子数组的和
         int left_sum = 0;
         int sum = 0;
@@ -80,8 +80,18 @@ public class Maximum_Subarray {
         return left_sum+right_sum;
     }
 
+    /***
+     * 求最大子数组和的外部方法
+     * @param a 要操作的数组
+     * @return 最大子数组和的值
+     */
+    public  static  int FIND_MAXMUM_SUBARRAY(int a[]){
+        return FIND_MAXMUM_SUBARRAY(a,0,a.length-1);
+    }
+
+    //测试结果
     public static void main(String[] args) {
         int a[] = new int[]{13,-3,-25,20,-3,-16,-23,18,20,-7,12,-5,-22,15,-4,7};
-        System.out.println(FIND_MAXMUM_SUBARRAY(a,0,a.length-1));
+        System.out.println(FIND_MAXMUM_SUBARRAY(a));
     }
 }
