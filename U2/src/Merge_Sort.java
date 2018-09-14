@@ -75,23 +75,5 @@ public class Merge_Sort {
         }
     }
 
-    public static void main(String[] args) {
-        int arr[] = new int[]{2, 4, 5, 7, 1, 2, 3, 6};
-        merge(arr, 0, 3, 7);
-        //check result：
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]+" ");
-        }
-        System.out.println();
-
-        int arr1[] = new int[]{5,2,4,7,1,3,2,6};
-        merge_sort(arr1);
-        //check result：
-        for (int i = 0; i < arr1.length; i++) {
-            System.out.print(arr1[i]+" ");
-        }
-        System.out.println();
-
-    }
 
 }
