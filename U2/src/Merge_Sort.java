@@ -13,12 +13,12 @@ public class Merge_Sort {
      *  3.将两部分合并
      *
      * @param a 待排序的数组
-     * @param p 数组的起始位置
-     * @param r 数组的末尾位置
+     * @param p 数组的起始位置(索引)
+     * @param r 数组的末尾位置(索引)
      */
     public static void merge_sort(int a[],int p,int r){
-        int q = (p + r)/2;
-        if (q<p){
+        if (p<r){
+            int q = (p + r)/2;
             merge_sort(a,p,q);
             merge_sort(a,q+1,r);
             merge(a,p,q,r);
@@ -31,7 +31,7 @@ public class Merge_Sort {
      */
     public static void merge_sort(int a[]){
         int p = 0;
-        int r = a.length;
+        int r = a.length-1;
         merge_sort(a,p,r);
     }
 
@@ -82,15 +82,16 @@ public class Merge_Sort {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]+" ");
         }
-
         System.out.println();
 
         int arr1[] = new int[]{5,2,4,7,1,3,2,6};
         merge_sort(arr1);
         //check result：
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]+" ");
+        for (int i = 0; i < arr1.length; i++) {
+            System.out.print(arr1[i]+" ");
         }
+        System.out.println();
+
     }
 
 }
