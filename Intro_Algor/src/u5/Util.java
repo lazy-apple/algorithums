@@ -1,5 +1,9 @@
 package u5;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import static u2.Merge_Sort.merge_sort;
 
 /**
@@ -7,6 +11,8 @@ import static u2.Merge_Sort.merge_sort;
  * @data 2018/9/14 - 15:09
  */
 public class Util {
+    public static List<Integer> list = new ArrayList<Integer>();
+    int flag = 0;
     /***
      * 获取数组中指定位置元素的值
      * @param a 指定的数组
@@ -48,5 +54,4 @@ public class Util {
             }
         }
     }
-
 }
