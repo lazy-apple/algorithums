@@ -19,7 +19,7 @@ public class RANDOMIZE_IN_PLACE {
     public static void randomize_in_place(int[] a){
         int length = a.length;
         for (int i = 0; i <length-1; i++) {//数组最后一个索引的值不需要再随机改变
-            int ran =new Random().nextInt(length-1-i) + i+1;
+            int ran =new Random().nextInt(length-i) + i;
 
             int t = a[ran];
             a[ran] = a[i];
