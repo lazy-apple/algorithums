@@ -78,10 +78,7 @@ public class Heap {
 
         if (largest != i){//不满足最大堆条件
             int t;
-            t = a[largest];
-            a[largest] = a[i];
-            a[i] = t;
-
+            Util.change(a,largest,i);
             MAX_HEAPIFY(a,largest);
         }
 
@@ -93,7 +90,7 @@ public class Heap {
      *  堆中元素个数=数组元素 个数
      *2.从n/2递减维护最大堆性质
      *  如果是数组的话，从n/2-1
-     *  
+     *
      * @param a （待排序的）数组
      */
     public static void BUILD_MAX_HEAP(int a[]){
@@ -102,6 +99,25 @@ public class Heap {
         for (i=heapLenth/2-1;i>=0;i--){//WRONG 错误写法：i = (heaplenth-1)/2
             MAX_HEAPIFY(a,i);
         }
-        System.out.println("finish");
+    }
+
+    /***
+     * 堆排序
+     *
+     *1.建堆
+     *2.将第一项元素与最后一项互换（因为第一项永远最大）
+     *3.堆的元素个数-1（换到末尾的元素不再需要维护）
+     *4.维护第一项元素（交换后的元素及其子树需要维护）
+     *5.直到遍历到数组最后一个元素（最后一个元素不需要调整）
+     *
+     * @param a （待排序的）数组
+     */
+    public static void HEAPSORT(int a[]){
+        BUILD_MAX_HEAP(a);
+        for (int i = a.length-1; i >0 ; i--) {
+            Util.change(a,0,i);//wrong 错误写法：（a,1,i）。错误原因：数组的第一个元素的索引为0
+            heapLenth --;
+            MAX_HEAPIFY(a,0);//wrong 错误写法：(a,0)。
+        }
     }
 }
