@@ -66,13 +66,13 @@ public class Heap {
         int r = right(i);
         int l = left(i);
 
-        if (l<=heapLenth&&a[l]>a[i]){
+        if (l<heapLenth&&a[l]>a[i]){//WRONG 错误写法：<=。原因：因为数组长度比数组最大索引多1。
             largest = l;
         }else {
             largest = i;
         }
 
-        if (r<=heapLenth&&a[r]>a[largest]){
+        if (r<heapLenth&&a[r]>a[largest]){
             largest = r;
         }
 
@@ -85,5 +85,23 @@ public class Heap {
             MAX_HEAPIFY(a,largest);
         }
 
+    }
+
+    /***
+     * 建堆
+     *1.初始化堆
+     *  堆中元素个数=数组元素 个数
+     *2.从n/2递减维护最大堆性质
+     *  如果是数组的话，从n/2-1
+     *  
+     * @param a （待排序的）数组
+     */
+    public static void BUILD_MAX_HEAP(int a[]){
+        init(a);
+        int i;
+        for (i=heapLenth/2-1;i>=0;i--){//WRONG 错误写法：i = (heaplenth-1)/2
+            MAX_HEAPIFY(a,i);
+        }
+        System.out.println("finish");
     }
 }
