@@ -28,4 +28,16 @@ public class Util {
         }
         System.out.println("】");
     }
+
+    /***
+     * 交换数组中两个元素的值
+     * @param a 数组
+     * @param i 交换元素的索引1
+     * @param j 交换元素的索引2
+     */
+    public static void change(int a[],int i,int j){
+        int t = a[j];
+        a[j] = a[i];
+        a[i] = t;
+    }
 }
