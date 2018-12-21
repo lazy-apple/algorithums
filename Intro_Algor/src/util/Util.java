@@ -40,4 +40,15 @@ public class Util {
         a[j] = a[i];
         a[i] = t;
     }
+
+    /***
+     * 将数组a拷贝到数组b中（a的长度<=b的长度）
+     * @param a
+     * @param b
+     */
+    public static void copyArray(int a[],int b[]){
+        for (int i = 0; i < a.length; i++) {
+            b[i] = a[i];
+        }
+    }
 }
