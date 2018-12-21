@@ -8,7 +8,7 @@ import util.Util;
  */
 public class Heap {
     public static int heapLenth;//堆中元素个数
-
+    public static int[] heap;//堆容器
     /***
      * 初始化堆
      * @param a
@@ -24,7 +24,7 @@ public class Heap {
      * @return  父节点的坐标
      */
     public static int parent(int i){
-        return i/2-1;
+        return (i-1)/2;
     }
 
     /***
@@ -41,6 +41,15 @@ public class Heap {
      * @param i
      * @return
      */
+
+    /**
+     * 将数组中符合堆条件的元素存入堆中
+     * @param a 数组
+     */
+    public static void copy_in_heap(int a[]){
+        heap =new int[heapLenth];
+        Util.copyArray(a,heap);
+    }
     public static int right(int i){
         return 2*i+1+1;
     }
