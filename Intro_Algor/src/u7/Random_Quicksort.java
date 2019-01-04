@@ -34,7 +34,7 @@ public class Random_Quicksort {
     }
 
     /***
-     * 外部方法
+     * 随即快速排序-外部方法
      * @param a
      */
     public static void RANDOMIZED_QUICKSORT(int a[]){
