@@ -36,7 +36,7 @@ public class Quicksort {
      * @param r
      * @return
      */
-    private static int PARTITION(int a[],int p,int r){
+    protected static int PARTITION(int a[],int p,int r){
         int x = a[r];//主元
         int i = p - 1;//区域界
         for (int j = p; j <= r-1 ; j++) {
