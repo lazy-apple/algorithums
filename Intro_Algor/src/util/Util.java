@@ -1,5 +1,7 @@
 package util;
 
+import java.util.Random;
+
 /**
  * @author LaZY（李志一）
  * @data 2018/9/14 - 15:42
@@ -50,5 +52,11 @@ public class Util {
         for (int i = 0; i < a.length; i++) {
             b[i] = a[i];
         }
+    }
+
+    public static int random(int start,int end){
+        Random random = new Random();
+        int ran = random.nextInt(end+1-start)+start;
+        return ran;
     }
 }
