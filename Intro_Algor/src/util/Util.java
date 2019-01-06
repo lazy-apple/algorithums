@@ -59,4 +59,17 @@ public class Util {
         int ran = random.nextInt(end+1-start)+start;
         return ran;
     }
+
+    /***
+     * 获得数组中的最大值
+     * @param a
+     * @return
+     */
+    public static int getMax(int a[]){
+        int max = a[0];
+        for (int i = 0; i < a.length-2; i++) {
+           max = Math.max(max,a[i+1]);
+        }
+        return max;
+    }
 }
