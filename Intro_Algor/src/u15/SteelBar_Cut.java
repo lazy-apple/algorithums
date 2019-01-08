@@ -75,7 +75,45 @@ public class SteelBar_Cut {
         return r[n];
     }
 
+    /***
+     * 重构解：自底向上法，增加切割方案
+     * @param p
+     * @param n
+     * @return
+     */
+    public static Plan extended_bottom_up_cut_rod(int[] p,int n){
+        Plan plan = Plan.getInstance();
+        plan.r[0] = 0;
+        for (int j = 1; j <= n ; j++) {
+            int q = Integer.MIN_VALUE;
+            for (int i = 1; i <= j ; i++) {
+                if(q<p[i-1]+plan.r[j-i]){
+                    q = p[i-1]+plan.r[j-i];//保存最优收益
+                    plan.s[j] = i;//保存切割方案
+                }
+                plan.r[j] = q;
+            }
+        }
+        return plan;
+    }
 
+    /***
+     * 打印不同长度的最大收益和最优切割方案
+     * @param p 价格数组
+     * @param n 钢条长度
+     */
+    public static void print_cut_rod_solution(int[] p,int n){
+        Plan plan = extended_bottom_up_cut_rod(p,n);
+        System.out.println("最大收益为"+plan.r[n]);
+        System.out.print("切割方案为："+n+"=");
+        while(n>0){
+            System.out.print(plan.s[n]);
+            n = n - plan.s[n];//最优切割方案=第一部分切割方案s[n]+第二部分切割方案
+            if(n!=0){
+                System.out.print("+");
+            }
+        }
+    }
     /***
      * 递归求解
      * @param p 价格数组p
@@ -112,4 +150,17 @@ public class SteelBar_Cut {
         }
         return a;
     }
+
+    /***
+     * 静态内部类
+     */
+   public static class Plan {
+        int[] r = new int[10+1];//不同长度的最优收益
+        int[] s = new int[10+1];;//不同长度的不同切割方案
+
+        public static Plan getInstance(){
+            return new Plan();
+        }
+    }
 }
+

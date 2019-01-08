@@ -9,7 +9,8 @@ public class Test {
         int p[] = new int[]{1,5,8,9,10,17,17,20,24,30};
 //        System.out.println(SteelBar_Cut.cut_rod(p, 4));
 //        System.out.println(SteelBar_Cut.memoized_cut_rod(p, 4));
-        System.out.println(SteelBar_Cut.bottom_up_cut_rod(p, 4));
+//        System.out.println(SteelBar_Cut.bottom_up_cut_rod(p, 4));
+        SteelBar_Cut.print_cut_rod_solution(p,7);
     }
 
 }
