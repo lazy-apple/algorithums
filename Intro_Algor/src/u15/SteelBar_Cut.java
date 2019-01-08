@@ -33,7 +33,7 @@ public class SteelBar_Cut {
     }
 
     /***
-     * 自顶向下（带备忘）:
+     * 自顶向下法（带备忘）:
      *      1.构建备忘表，填充最小值;
      *      2.使用上述递归方法:
      *          1).如果备忘表中已存在（长度为n的收益），直接返回;
@@ -51,6 +51,30 @@ public class SteelBar_Cut {
         int r[] = build_Memorandum(n);
         return memoized_cut_rod_aux(p,n,r);
     }
+
+    /**
+     * 自底向上法
+     *      1.构建备忘数组；
+     *      2.从1遍历到n，获取最优解，并将结果存放在备忘表中：
+     *          对每个数其不同方案遍历取结果；
+     *      3.返回备忘数组中n元素的值（长度为n的最优解）
+     * @param p
+     * @param n
+     * @return
+     */
+    public static int bottom_up_cut_rod(int p[],int n){
+        int r[] = build_Memorandum(n);
+        r[0] = 0;//原因：第一次遍历计算时会使用到r[0]的值。
+        for (int j = 1; j <= n; j++) {//从1遍历到n，获取最优解
+            int q = Integer.MIN_VALUE;
+            for (int i = 1; i <= j; i++) {
+                q = Math.max(q,p[i-1]+r[j-i]);//wrong 错误写法：Math.max(q,p[i]+r[j-i]) 错误原因：i的初值为1（不是0），q数组中第一个元素的索引为i-1
+            }
+            r[j] = q;                 //并将结果存放在备忘表中
+        }
+        return r[n];
+    }
+
 
     /***
      * 递归求解
