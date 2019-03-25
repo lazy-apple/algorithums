@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Alg/Alg.iml" filepath="$PROJECT_DIR$/Alg/Alg.iml" />
       <module fileurl="file://$PROJECT_DIR$/Intro_Algor/Intro_Algor.iml" filepath="$PROJECT_DIR$/Intro_Algor/Intro_Algor.iml" />
       <module fileurl="file://$PROJECT_DIR$/algorithums.iml" filepath="$PROJECT_DIR$/algorithums.iml" />
     </modules>
