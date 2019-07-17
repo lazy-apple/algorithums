@@ -32,13 +32,13 @@ public class Code_05_MergeSort {
 		while (p1 <= m && p2 <= r) {
 			help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
 		}
-		while (p1 <= m) {
+		while (p1 <= m) {//处理剩余情况
 			help[i++] = arr[p1++];
 		}
-		while (p2 <= r) {
+		while (p2 <= r) {//处理剩余情况
 			help[i++] = arr[p2++];
 		}
-		for (i = 0; i < help.length; i++) {
+		for (i = 0; i < help.length; i++) {//拷贝回原数组
 			arr[l + i] = help[i];
 		}
 	}

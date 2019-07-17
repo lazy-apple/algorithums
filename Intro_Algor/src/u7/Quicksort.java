@@ -32,14 +32,14 @@ public class Quicksort {
     /***
      * 分区
      * @param a
-     * @param p
+     * @param l
      * @param r
      * @return
      */
-    protected static int PARTITION(int a[],int p,int r){
+    protected static int PARTITION(int a[],int l,int r){
         int x = a[r];//主元
-        int i = p - 1;//区域界
-        for (int j = p; j <= r-1 ; j++) {
+        int i = l - 1;//区域界
+        for (int j = l; j <= r-1 ; j++) {
             if(a[j] < x){
                 i ++;
                 Util.change(a,i,j);
